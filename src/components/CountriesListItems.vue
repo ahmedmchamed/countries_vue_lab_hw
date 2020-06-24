@@ -1,5 +1,5 @@
 <template>
-    <li>{{ country }}</li>
+    <option>{{ country.name }}</option>
 </template>
 
 <script>
