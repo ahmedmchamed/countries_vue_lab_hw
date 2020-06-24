@@ -1,28 +1,34 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import CountriesList from './components/CountriesList.vue';
 
 export default {
   name: 'App',
+  mounted() {
+    fetch('https://restcountries.eu/rest/v2/all')
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      this.countries = data;
+    })
+  },
+  data() {
+    return {
+      countries: []
+    }
+  },
   components: {
-    HelloWorld
+    'countries-list': CountriesList
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
