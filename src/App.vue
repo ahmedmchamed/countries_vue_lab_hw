@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    
+    <countries-list :countries="countries"></countries-list>
   </div>
 </template>
 
